@@ -8,13 +8,13 @@ const person: Person = {
   role: "Full Stack Web Developer",
   avatar: "/images/avatar.jpg",
   email: "sohanshahariar4@gmail.com",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+  location: "Asia/Dhaka", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   languages: ["English", "Bangla", "Hindi"], // optional: Leave the array empty if you don't want to display languages
 };
 
 const newsletter: Newsletter = {
   display: true,
-  title: <>Subscribe to {person.firstName}'s Newsletter</>,
+  title: <>Send me message</>,
   description: <>My weekly newsletter about creativity and engineering</>,
 };
 
@@ -48,13 +48,11 @@ const home: Home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Building bridges between design and code</>,
+  headline: <>Full Stack Developer with a Backend Mindset</>,
   featured: {
     display: true,
     title: (
       <Row gap="12" vertical="center">
-        <strong className="ml-4">Once UI</strong>{" "}
-        <Line background="brand-alpha-strong" vert height="20" />
         <Text marginRight="4" onBackground="brand-medium">
           Featured work
         </Text>
@@ -64,8 +62,12 @@ const home: Home = {
   },
   subline: (
     <>
-    I'm Selene, a design engineer at <Text as="span" size="xl" weight="strong">ONCE UI</Text>, where I craft intuitive <br /> user experiences. After hours, I build my own projects.
-</>
+      I’m Shahariar Sohan, a Full Stack Developer at{" "}
+      <Text as="span" size="xl" weight="strong">
+        SM Technology {" "}
+      </Text>
+      focused on building scalable backend systems and modern web apps.
+    </>
   ),
 };
 
@@ -90,9 +92,12 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        I’m Shahariar Sohan, a Full Stack Developer focused on building modern
+        web applications with Next.js and React. On the backend, I work with
+        MongoDB and PostgreSQL, using Prisma and Mongoose to design scalable and
+        maintainable systems. I’m particularly passionate about backend
+        engineering understanding how servers work, how data is stored and
+        managed, and how cloud platforms operate at scale.
       </>
     ),
   },
@@ -101,44 +106,40 @@ const about: About = {
     title: "Work Experience",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "SM Technology",
+        timeframe: "2026 - Present",
+        role: "Full Stack Developer",
         achievements: [
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
+            Designed and implemented scalable backend systems using Node.js,
+            PostgreSQL, and MongoDB, improving API performance and reliability.
           </>,
           <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
-          </>,
-        ],
-        images: [
-          // optional: leave the array empty if you don't want to display images
-          {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
-            width: 16,
-            height: 9,
-          },
-        ],
-      },
-      {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
-        achievements: [
-          <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
+            Built and optimized database schemas with Prisma and Mongoose,
+            ensuring efficient data management and maintainability.
           </>,
           <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
+            Developed RESTful APIs and backend services for web applications,
+            focusing on performance, security, and scalability.
+          </>,
+          <>
+            Improved system performance by optimizing queries and reducing
+            response times across critical endpoints.
+          </>,
+          <>
+            Collaborated with frontend teams to integrate APIs seamlessly,
+            ensuring smooth and efficient user experiences.
           </>,
         ],
-        images: [],
+        // images: [
+        //   // optional: leave the array empty if you don't want to display images
+        //   {
+        //     src: "https://i.ibb.co.com/0jZp2SB5/hdrt.png",
+        //     alt: "Hidden Dependency Risk Tracker",
+        //     width: 16,
+        //     height: 9,
+        //   },
+        // ],
       },
     ],
   },
@@ -238,55 +239,55 @@ const work: Work = {
   // All projects will be listed on the /home and /work routes
 };
 
-const gallery: Gallery = {
-  path: "/gallery",
-  label: "Gallery",
-  title: `Photo gallery – ${person.name}`,
-  description: `A photo collection by ${person.name}`,
-  // Images by https://lorant.one
-  // These are placeholder images, replace with your own
-  images: [
-    {
-      src: "/images/gallery/horizontal-1.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-4.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/horizontal-3.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-1.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/vertical-2.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/horizontal-2.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/horizontal-4.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-3.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-  ],
-};
+// const gallery: Gallery = {
+//   path: "/gallery",
+//   label: "Gallery",
+//   title: `Photo gallery – ${person.name}`,
+//   description: `A photo collection by ${person.name}`,
+//   // Images by https://lorant.one
+//   // These are placeholder images, replace with your own
+//   images: [
+//     {
+//       src: "/images/gallery/horizontal-1.jpg",
+//       alt: "image",
+//       orientation: "horizontal",
+//     },
+//     {
+//       src: "/images/gallery/vertical-4.jpg",
+//       alt: "image",
+//       orientation: "vertical",
+//     },
+//     {
+//       src: "/images/gallery/horizontal-3.jpg",
+//       alt: "image",
+//       orientation: "horizontal",
+//     },
+//     {
+//       src: "/images/gallery/vertical-1.jpg",
+//       alt: "image",
+//       orientation: "vertical",
+//     },
+//     {
+//       src: "/images/gallery/vertical-2.jpg",
+//       alt: "image",
+//       orientation: "vertical",
+//     },
+//     {
+//       src: "/images/gallery/horizontal-2.jpg",
+//       alt: "image",
+//       orientation: "horizontal",
+//     },
+//     {
+//       src: "/images/gallery/horizontal-4.jpg",
+//       alt: "image",
+//       orientation: "horizontal",
+//     },
+//     {
+//       src: "/images/gallery/vertical-3.jpg",
+//       alt: "image",
+//       orientation: "vertical",
+//     },
+//   ],
+// };
 
-export { person, social, newsletter, home, about, blog, work, gallery };
+export { person, social, newsletter, home, about, blog, work};
