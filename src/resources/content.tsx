@@ -1,4 +1,4 @@
-import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
+import { About, Blog, Home, Newsletter, Person, Social, Work } from "@/types";
 import { Line, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
@@ -6,7 +6,7 @@ const person: Person = {
   lastName: "Sohan",
   name: `Shahariar Sohan`,
   role: "Full Stack Web Developer",
-  avatar: "/images/avatar.jpg",
+  // avatar: "/images/avatar.jpg",
   email: "sohanshahariar4@gmail.com",
   location: "Asia/Dhaka", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   languages: ["English", "Bangla", "Hindi"], // optional: Leave the array empty if you don't want to display languages
@@ -14,8 +14,10 @@ const person: Person = {
 
 const newsletter: Newsletter = {
   display: true,
-  title: <>Send me message</>,
-  description: <>My weekly newsletter about creativity and engineering</>,
+  title: <>Send me a message</>,
+  description: (
+    <>Have a question or want to work together? Feel free to reach out.</>
+  ),
 };
 
 const social: Social = [
@@ -143,79 +145,58 @@ const about: About = {
       },
     ],
   },
-  studies: {
-    display: true, // set to false to hide this section
-    title: "Studies",
-    institutions: [
-      {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
-      },
-      {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
-      },
-    ],
-  },
+
   technical: {
-    display: true, // set to false to hide this section
+    display: true,
     title: "Technical skills",
     skills: [
       {
-        title: "Figma",
-        description: (
-          <>Able to prototype in Figma with Once UI with unnatural speed.</>
-        ),
         tags: [
-          {
-            name: "Figma",
-            icon: "figma",
-          },
-        ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-          {
-            src: "/images/projects/project-01/cover-03.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
+          { name: "JavaScript", icon: "javascript" },
+          { name: "TypeScript", icon: "typescript" },
+          { name: "React", icon: "react" },
+          { name: "Redux", icon: "redux" },
+          { name: "Next.js", icon: "nextjs" },
+          { name: "Tailwind CSS", icon: "tailwindcss" },
+
+          { name: "Node.js", icon: "nodejs" },
+          { name: "Express.js", icon: "express" },
+
+          { name: "MongoDB", icon: "mongodb" },
+          { name: "Mongoose", icon: "mongoose" },
+
+          { name: "PostgreSQL", icon: "postgresql" },
+          { name: "Prisma", icon: "prisma" },
+
+          { name: "Docker", icon: "docker" },
+          { name: "Postman", icon: "postman" },
+          { name: "Vercel", icon: "vercel" },
+
+          { name: "Supabase", icon: "supabase" },
+          { name: "Neon", icon: "neon" },
         ],
       },
+    ],
+  },
+  studies: {
+    display: true, // set to false to hide this section
+    title: "Studies & Courses",
+    institutions: [
       {
-        title: "Next.js",
-        description: (
-          <>Building next gen apps with Next.js + Once UI + Supabase.</>
-        ),
-        tags: [
-          {
-            name: "JavaScript",
-            icon: "javascript",
-          },
-          {
-            name: "Next.js",
-            icon: "nextjs",
-          },
-          {
-            name: "Supabase",
-            icon: "supabase",
-          },
-        ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-04.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-        ],
+        name: "A AL Khan High School, Chattagram, Bangladesh",
+        description: <>Completed Secondary School Certificate</>,
+      },
+      {
+        name: "Sir Ashutosh Govt College, Chattgram , Bangladesh",
+        description: <>Completed Higher Secondary School Certificate</>,
+      },
+      {
+        name: "Next Level Web Development",
+        description: <>Completed next level web development course.</>,
+      },
+      {
+        name: "PH Web Development",
+        description: <>Completed programming hero web development course.</>,
       },
     ],
   },

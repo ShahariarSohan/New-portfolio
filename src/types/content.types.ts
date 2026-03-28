@@ -20,7 +20,7 @@ export type Person = {
   /** Role or job title */
   role: string;
   /** Path to avatar image */
-  avatar: string;
+  avatar?: string;
   /** Email address */
   email: string;
   /** IANA time zone location */
@@ -188,25 +188,13 @@ export interface About extends BasePageConfig {
     /** List of technical skills */
     skills: Array<{
       /** Skill title */
-      title: string;
-      /** Skill description */
-      description?: React.ReactNode;
+
       /** Skill tags */
       tags?: Array<{
         name: string;
         icon?: string;
       }>;
       /** Images related to the skill */
-      images?: Array<{
-        /** Image source path */
-        src: string;
-        /** Image alt text */
-        alt: string;
-        /** Image width ratio */
-        width: number;
-        /** Image height ratio */
-        height: number;
-      }>;
     }>;
   };
 }
