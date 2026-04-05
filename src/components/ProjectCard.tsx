@@ -1,13 +1,14 @@
 "use client";
 
 import {
-  AvatarGroup,
-  Carousel,
   Column,
   Flex,
   Heading,
   SmartLink,
   Text,
+  Media,
+  Tag,
+  Row,
 } from "@once-ui-system/core";
 
 interface ProjectCardProps {
@@ -19,6 +20,10 @@ interface ProjectCardProps {
   description: string;
   avatars: { src: string }[];
   link: string;
+  frontendRepo?: string;
+  backendRepo?: string;
+  backendLive?: string;
+  tags?: string[];
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -27,63 +32,106 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   title,
   content,
   description,
-  avatars,
   link,
+  frontendRepo,
+  backendRepo,
+  backendLive,
+  tags = [],
+  priority,
 }) => {
   return (
-    <Column fillWidth gap="m">
-      <Carousel
-        sizes="(max-width: 960px) 100vw, 960px"
-        items={images.map((image) => ({
-          slide: image,
-          alt: title,
-        }))}
-      />
+    <Column fillWidth gap="m" style={{ borderRadius: "var(--radius-l)", overflow: "hidden", border: "1px solid var(--neutral-border-weak)" }}>
+      {/* Thumbnail */}
+      {images.length > 0 && (
+        <Media
+          priority={priority}
+          sizes="(max-width: 960px) 100vw, 960px"
+          aspectRatio="16 / 9"
+          radius="none"
+          alt={title}
+          src={images[0]}
+        />
+      )}
+
       <Flex
         s={{ direction: "column" }}
         fillWidth
-        paddingX="s"
-        paddingTop="12"
+        paddingX="24"
+        paddingTop="16"
         paddingBottom="24"
-        gap="l"
+        gap="16"
       >
+        {/* Title */}
         {title && (
-          <Flex flex={5}>
-            <Heading as="h2" wrap="balance" variant="heading-strong-xl">
-              {title}
-            </Heading>
+          <Heading as="h2" wrap="balance" variant="heading-strong-l">
+            {title}
+          </Heading>
+        )}
+
+        {/* Description */}
+        {description?.trim() && (
+          <Text wrap="balance" variant="body-default-s" onBackground="neutral-weak">
+            {description}
+          </Text>
+        )}
+
+        {/* Tags */}
+        {tags.length > 0 && (
+          <Flex gap="8" wrap>
+            {tags.map((tag) => (
+              <Tag key={tag} label={tag} size="s" />
+            ))}
           </Flex>
         )}
-        {(avatars?.length > 0 || description?.trim() || content?.trim()) && (
-          <Column flex={7} gap="16">
-            {avatars?.length > 0 && <AvatarGroup avatars={avatars} size="m" reverse />}
-            {description?.trim() && (
-              <Text wrap="balance" variant="body-default-s" onBackground="neutral-weak">
-                {description}
-              </Text>
-            )}
-            <Flex gap="24" wrap>
-              {content?.trim() && (
-                <SmartLink
-                  suffixIcon="arrowRight"
-                  style={{ margin: "0", width: "fit-content" }}
-                  href={href}
-                >
-                  <Text variant="body-default-s">Read case study</Text>
-                </SmartLink>
-              )}
-              {link && (
-                <SmartLink
-                  suffixIcon="arrowUpRightFromSquare"
-                  style={{ margin: "0", width: "fit-content" }}
-                  href={link}
-                >
-                  <Text variant="body-default-s">View project</Text>
-                </SmartLink>
-              )}
-            </Flex>
-          </Column>
-        )}
+
+        {/* Links */}
+        <Flex gap="16" wrap marginTop="8">
+          {content?.trim() && (
+            <SmartLink
+              suffixIcon="arrowRight"
+              style={{ margin: "0", width: "fit-content" }}
+              href={href}
+            >
+              <Text variant="body-default-s">Read case study</Text>
+            </SmartLink>
+          )}
+          {link && (
+            <SmartLink
+              suffixIcon="arrowUpRightFromSquare"
+              style={{ margin: "0", width: "fit-content" }}
+              href={link}
+            >
+              <Text variant="body-default-s">Live demo</Text>
+            </SmartLink>
+          )}
+          {frontendRepo && (
+            <SmartLink
+              suffixIcon="arrowUpRightFromSquare"
+              style={{ margin: "0", width: "fit-content" }}
+              href={frontendRepo}
+            >
+              <Text variant="body-default-s">Frontend repo</Text>
+            </SmartLink>
+          )}
+          {backendRepo && (
+            <SmartLink
+              suffixIcon="arrowUpRightFromSquare"
+              style={{ margin: "0", width: "fit-content" }}
+              href={backendRepo}
+            >
+              <Text variant="body-default-s">Backend repo</Text>
+            </SmartLink>
+          )}
+          {backendLive && (
+            <SmartLink
+              suffixIcon="arrowUpRightFromSquare"
+              style={{ margin: "0", width: "fit-content" }}
+              href={backendLive}
+            >
+              <Text variant="body-default-s">Backend live</Text>
+            </SmartLink>
+          )}
+        </Flex>
       </Flex>
     </Column>
   );

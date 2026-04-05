@@ -8,12 +8,18 @@ interface ProjectsProps {
 }
 
 export function Projects({ range, exclude }: ProjectsProps) {
+  // Permanently exclude the template demo projects
+  const DEMO_SLUGS = [
+    "automate-design-handovers-with-a-figma-to-code-pipeline",
+    "building-once-ui-a-customizable-design-system",
+    "simple-portfolio-builder",
+  ];
+
   let allProjects = getPosts(["src", "app", "work", "projects"]);
 
-  // Exclude by slug (exact match)
-  if (exclude && exclude.length > 0) {
-    allProjects = allProjects.filter((post) => !exclude.includes(post.slug));
-  }
+  // Exclude demo slugs + any caller-provided slugs
+  const allExcluded = [...DEMO_SLUGS, ...(exclude || [])];
+  allProjects = allProjects.filter((post) => !allExcluded.includes(post.slug));
 
   const sortedProjects = allProjects.sort((a, b) => {
     return new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime();
@@ -36,6 +42,10 @@ export function Projects({ range, exclude }: ProjectsProps) {
           content={post.content}
           avatars={post.metadata.team?.map((member) => ({ src: member.avatar })) || []}
           link={post.metadata.link || ""}
+          frontendRepo={post.metadata.frontendRepo || ""}
+          backendRepo={post.metadata.backendRepo || ""}
+          backendLive={post.metadata.backendLive || ""}
+          tags={post.metadata.tags || []}
         />
       ))}
     </Column>
